@@ -1,0 +1,100 @@
+-----------------------------------
+Installing Git on your local windows machine (gives you command line functionality)
+-------------------------------------
+et Git from git-scm.com
+All default options
+"Use Git from Git Bash only"
+"Use OpenSSH"
+"Checkout Windows-Style, commit Unix-style line endings"
+"Use MinTTY"
+"Enable file system caching" (not selected - change later by setting core.fscache to true)
+
+-----------------------------------
+Installing GitFlow Extensions AVH (more command line tools)
+-------------------------------------
+*Download that doesn't allow the hacking*
+
+The download is called Full installer for official Git for Windows. (http://bit.ly/T5ZMHE)
+Extract the files and copy them in 
+C:\Program Files(x86)\Git\bin 
+OR (depending on your installation)
+C:\Program Files\Git\bin
+
+Open the GitBash command and find the download
+cd /c/
+mkdir GitHub
+cd GitHub
+git clone --recursive git://github.com/petervanderdoes/gitflow.git
+
+cd gitflow
+./contrib/gitflow-installer.sh install stable
+
+Check if it's working (Gives a lot of errors about hooks and things - but it will still work)
+git flow help
+
+
+---------------
+to set your account's default identity.
+  git config --global user.email "richie.chauhan@gmail.com"
+  git config --global user.name "udadoggdude"
+
+Omit --global to set the identity only in this repository.
+
+git config user.email "richie.chauhan@gmail.com"
+git config user.name "udadoggdude"
+
+I'm not sure exactly what this is used for. 
+When pushing to origin (which gets set when you clone below) or clone from the URL then you have to provide the github url. 
+
+--------------
+
+-----------------------
+Follow the instructions here on gitflow
+http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/
+watch the videos that it refers to
+-----------------------
+
+-----------------------
+Initial Setup of Repository
+-----------------------
+After creating a repository on GitHub for Dogg-Tails I created a fresh folder on the desktop on Windows
+*git clone https://github.com/dadoggpound/Dogg-Tails.git (this is a folder that only has a master branch)
+*git flow init
+Will create additional branch develop and is configured to automatically create feature, hotfix, support, bugfix as required with certain commands
+*git push origin develop
+
+-----------------------
+Feature Release
+-----------------------
+*git flow feature start toc
+
+Add a new file (I had modified readme earlier)
+
+*git status
+shows you what has changed and has been added
+
+*git add index.html
+*git add README.md
+
+*git status
+*git commit (Had to put in my user.email and user.name again for some reason - maybe I restarted the shell)
+*git flow feature finish toc
+*git push origin develop
+
+----------------------------
+Maybe install later
+----------------------------
+https://github.com/petervanderdoes/git-flow-completion
+Git Extensions?
+-----------------
+
+GitFlow - https://github.com/petervanderdoes/gitflow-avh
+
+
+
+
+----------------------------
+More reading
+https://about.gitlab.com/2014/09/29/gitlab-flow/  (Pull and control develop and master)
+https://www.perforce.com/resources/tutorials/mainline-model
+----------------------------
